@@ -1,0 +1,41 @@
+vendor:
+  config:
+    name: Prathiba's First Training Company
+
+server:
+  servlet:
+    context-path: /api/vendor
+spring:
+  cloud:
+    stream:
+      bindings:
+        convertToUppercase-in-0:
+          destination: values-topic
+          group: processor
+        convertToUppercase-out-0:
+          destination: uppercase-values-topic
+  application:
+    name: vendor-microservice
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      ttl: 3600
+  datasource:
+    password: adming@123
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+
+
+
+
+
+
